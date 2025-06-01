@@ -131,14 +131,14 @@ class AverageMeter(object):
     """Computes and stores the average and current value"""
 
     def __init__(self):
-        self.err_num = 0
+        self.num = 0
         self.total_num = 0
-        self.err_rate = 0
+        self.rate = 0
 
-    def update(self, acc_num, total_num):
-        self.err_num += acc_num
+    def update(self, num, total_num):
+        self.num += num
         self.total_num += total_num
-        self.err_rate = self.err_num / self.total_num
+        self.rate = self.num / self.total_num
 
 
 def seed_torch(seed=2025):  # 随机数种子
