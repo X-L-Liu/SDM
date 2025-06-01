@@ -18,16 +18,16 @@ def eval_model(ATT):
             top1.update((logit.max(1)[1] != label).sum().item(), len(label))
             pbar.update(1)
 
-    return top1.err_rate
+    return top1.rate
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('--data_path', type=str, default=r'dataset')
-    parser.add_argument('--batch_size', type=int, default=200)
     parser.add_argument('--dataset_name', type=str, default='cifar10', choices=['cifar10', 'cifar100'])
+    parser.add_argument('--batch_size', type=int, default=200)
     parser.add_argument('--total_steps', type=int, default=20)
-    parser.add_argument('--model_name', type=str, default='')
+    parser.add_argument('--model_name', type=str, default='WideResNet28x10')
     parser.add_argument('--model_path', type=str, default='')
     parser.add_argument('--device', type=int, default=0)
     args = parser.parse_args()
